@@ -1,12 +1,15 @@
 import { useState } from 'react'
-import planet from './assets/planet.svg'
+import planetSVG from './assets/planet.svg'
 import './App.css'
+
+import Scene from './Scene/Scene'
 
 function App() {
 
   return (
     <div className="container">
-      <img className="planet" src={planet} alt="Planet" />
+      <Scene />
+      {/* <img className="planet" src={planetSVG} alt="Planet" /> */}
     </div>
   )
 }
