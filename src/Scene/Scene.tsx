@@ -8,11 +8,11 @@ function Planet() {
   const planetRef = useRef<Mesh>(null!);
   const textures = useTexture({
     map: './textures/planet/planet_color.png',
-    //displacementMap: './textures/planet/planet_height.png',
-    aoMap: './textures/planet/planet_ao.png',
-    roughnessMap: './textures/planet/planet_roughness.png',
+    //displacementMap: './textures/planet/planet_height.jpg',
+    aoMap: './textures/planet/planet_ao.jpg',
+    roughnessMap: './textures/planet/planet_roughness.jpg',
     metalnessMap: './textures/planet/planet_metalness.png',
-    normalMap: './textures/planet/planet_normal.png'
+    normalMap: './textures/planet/planet_normal.jpg'
   })
 
   useFrame(() => {
@@ -22,8 +22,8 @@ function Planet() {
   return (
     <mesh ref={planetRef}>
       <sphereGeometry args={[1, 100, 100]} />
-      <meshStandardMaterial color='gray' />
-      {/* <meshStandardMaterial {...textures} normalMap-encoding={LinearEncoding} /> */}
+      {/* <meshStandardMaterial color='gray' /> */}
+      <meshStandardMaterial {...textures} normalMap-encoding={LinearEncoding} />
       {/* <meshToonMaterial color='gray' /> */}
     </mesh>
   )
@@ -37,13 +37,13 @@ function CursorLight() {
   })
 
   return (
-    <pointLight ref={cursorLightRef} position={[-10, 5, 5]} intensity={5} />
+    <pointLight ref={cursorLightRef} position={[-10, 5, 5]} intensity={3} />
   )
 }
 
 function CameraHelper() {
     const camera = new PerspectiveCamera(60, 1, 1, 350);
-    return <group position={[2, 2, 2]} rotation={[-0.15*Math.PI, 0.25*Math.PI, 0*Math.PI, 'YXZ']}>
+    return <group position={[2, 1, 2]} rotation={[deg(-19.5), deg(45), deg(0), 'YXZ']}>
         <cameraHelper args={[camera]} />
     </group>
 }
@@ -54,15 +54,15 @@ function Scene() {
 
   return (
     <Canvas camera={{ 
-      position: [2, 2, 2], 
-      rotation: [-0.15*Math.PI, 0.25*Math.PI, 0*Math.PI, 'YXZ'], 
+      position: [2, 1, 2], 
+      rotation: [deg(-19.5), deg(45), deg(0), 'YXZ'], 
       fov: 60, 
       aspect: 1, 
       near: 1, 
       far:350
     }}>
 
-      <ambientLight />
+      <ambientLight intensity={1.5}/>
       {/* <pointLight position={[5, 5, 5]} intensity={5} /> */}
       <CursorLight />
       <Stars />
@@ -71,7 +71,7 @@ function Scene() {
         <Planet />
       </Float>
 
-      {/* <OrbitControls /> */}
+      <OrbitControls />
       <CameraHelper />
       <axesHelper args={[10]} />
     </Canvas>
