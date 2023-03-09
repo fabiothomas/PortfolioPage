@@ -20,7 +20,7 @@ function Planet() {
   })
 
   return (
-    <mesh ref={planetRef} position={[1.75, 0 ,0]}>
+    <mesh ref={planetRef} position={[1, -0.5 ,0]}>
       <sphereGeometry args={[1, 100, 100]} />
       {/* <meshStandardMaterial color='gray' /> */}
       <meshStandardMaterial {...textures} normalMap-encoding={LinearEncoding} />

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import planetSVG from './assets/planet.svg'
-import waveSVG from './assets/wave.svg'
+import waveSVG from './assets/wave2.svg'
 import './App.css'
 
 import Scene from './Scene/Scene'
