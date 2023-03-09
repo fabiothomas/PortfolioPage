@@ -14,3 +14,11 @@
   margin-top: 30vh;
   margin-right: -10vw;
 }
+
+.wave {
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+}

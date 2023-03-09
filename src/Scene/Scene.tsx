@@ -20,7 +20,7 @@ function Planet() {
   })
 
   return (
-    <mesh ref={planetRef}>
+    <mesh ref={planetRef} position={[1.75, 0 ,0]}>
       <sphereGeometry args={[1, 100, 100]} />
       {/* <meshStandardMaterial color='gray' /> */}
       <meshStandardMaterial {...textures} normalMap-encoding={LinearEncoding} />
@@ -42,7 +42,7 @@ function CursorLight() {
 }
 
 function CameraHelper() {
-    const camera = new PerspectiveCamera(60, 1, 1, 350);
+    const camera = new PerspectiveCamera(60, 1, 0, 350);
     return <group position={[2, 1, 2]} rotation={[deg(-19.5), deg(45), deg(0), 'YXZ']}>
         <cameraHelper args={[camera]} />
     </group>
@@ -58,7 +58,7 @@ function Scene() {
       rotation: [deg(-19.5), deg(45), deg(0), 'YXZ'], 
       fov: 60, 
       aspect: 1, 
-      near: 1, 
+      near: 0.1, 
       far:350
     }}>
 
@@ -67,12 +67,12 @@ function Scene() {
       <CursorLight />
       <Stars />
 
-      <Float speed={1.0} rotationIntensity={1.0} floatIntensity={1.0}>
+      <Float speed={0.1} rotationIntensity={1.0} floatIntensity={0.1}>
         <Planet />
       </Float>
 
-      <OrbitControls />
-      <CameraHelper />
+      {/* <OrbitControls /> */}
+      {/* <CameraHelper /> */}
       <axesHelper args={[10]} />
     </Canvas>
   )
