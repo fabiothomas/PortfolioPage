@@ -73,7 +73,7 @@ function Scene() {
 
       {/* <OrbitControls /> */}
       {/* <CameraHelper /> */}
-      <axesHelper args={[10]} />
+      {/* <axesHelper args={[10]} /> */}
     </Canvas>
   )
 }
