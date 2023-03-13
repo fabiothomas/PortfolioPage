@@ -4,6 +4,7 @@
   display: flex;
   overflow: hidden;
   justify-content: end;
+  font-family: 'Sono', sans-serif;
 }
 
 .loading {
@@ -11,15 +12,6 @@
   left: 50vw;
   top: 50vh;
   transform: translate(-50%, -50%);
-}
-
-.planet {
-  width: 60vw;
-  height: 100vh;
-  rotate: -12sdeg;
-
-  margin-top: 30vh;
-  margin-right: -10vw;
 }
 
 .wave {
