@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { useRef } from 'react'
+import { useRef, Suspense } from 'react'
 import { Mesh, PointLight, PerspectiveCamera, LinearEncoding, MeshToonMaterial } from 'three'
 import { OrbitControls, Stars, Float, useTexture } from '@react-three/drei'
 
@@ -61,19 +61,21 @@ function Scene() {
       near: 0.1, 
       far:350
     }}>
+      
 
-      <ambientLight intensity={1.5}/>
-      {/* <pointLight position={[5, 5, 5]} intensity={5} /> */}
-      <CursorLight />
-      <Stars />
+        <ambientLight intensity={1.5}/>
+        {/* <pointLight position={[5, 5, 5]} intensity={5} /> */}
+        <CursorLight />
+        <Stars />
 
-      <Float speed={0.1} rotationIntensity={1.0} floatIntensity={0.1}>
-        <Planet />
-      </Float>
+        <Float speed={0.1} rotationIntensity={1.0} floatIntensity={0.1}>
+          <Planet />
+        </Float>
 
-      {/* <OrbitControls /> */}
-      {/* <CameraHelper /> */}
-      {/* <axesHelper args={[10]} /> */}
+        {/* <OrbitControls /> */}
+        {/* <CameraHelper /> */}
+        {/* <axesHelper args={[10]} /> */}
+      
     </Canvas>
   )
 }
