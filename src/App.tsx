@@ -21,7 +21,7 @@ function App() {
     <div className="container">
       <Suspense fallback={Loading()}>
         <Scene />
-        <img className="wave" src={waveSVG} alt="Wave" />
+        {/* <img className="wave" src={waveSVG} alt="Wave" /> */}
       </Suspense>
     </div>
   )
