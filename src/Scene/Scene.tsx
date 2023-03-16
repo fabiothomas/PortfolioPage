@@ -1,52 +1,28 @@
 import { useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { useLayoutEffect, useRef, Suspense } from 'react'
+import { useRef } from 'react'
 //import { Mesh, Line, PointLight, PerspectiveCamera, LinearEncoding, MeshToonMaterial, NearestFilter, Vector3, BufferGeometry } from 'three'
 import * as THREE from 'three'
 import { OrbitControls, Stars, Float, useTexture } from '@react-three/drei'
+import { PointsMaterial } from 'three'
 
-// function Orbit() {
-//   const ref = useRef()
+function Planet1() {
+  const ref = useRef<THREE.Points>(null!);
 
-//   const points: THREE.Vector3[] = []
-//   points.push(new THREE.Vector3(-10, 0, 0))
-//   points.push(new THREE.Vector3(0, 10, 0))
-//   points.push(new THREE.Vector3(10, 0, 0))
-//   points.push(new THREE.Vector3(-1, 9, 0))
-  
-//   return (
-//     <line ref={ref}>
-//       <bufferGeometry setFromPoints={() => new THREE.BufferGeometry().setFromPoints(points)}/>
-//       <lineBasicMaterial color={'green'}/>
-//     </line>
-//   )
-// }
+  useFrame(() => {
+    ref.current.rotateY(1);
+  })
 
-// function Line() {
-//   const ref = useRef<THREE.Line>()
+  return (
+    <points ref={ref} position={[-2, 0, 1]}>
+      <sphereGeometry args={[0.3, 25, 25]} />
+      <pointsMaterial color='white' size={0.005} />
+    </points>
+  )
+}
 
-//   const points: THREE.Vector3[] = []
-//   points.push(new THREE.Vector3(-10, 0, 0))
-//   points.push(new THREE.Vector3(0, 10, 0))
-//   points.push(new THREE.Vector3(10, 0, 0))
-//   points.push(new THREE.Vector3(-1, 9, 0))
-
-//   useFrame(() => {
-//     if(ref.current){
-//         ref.current.geometry.setFromPoints(points.map((point) => new THREE.Vector3(...point)));
-//     }
-//   })
-
-//   return (
-//     <line ref={ref}>
-//       <bufferGeometry />
-//       <lineBasicMaterial color="hotpink" />
-//     </line>
-//   )
-// }
-
-function Planet() {
-  const planetRef = useRef<THREE.Mesh>(null!);
+function CentrePlanet() {
+  const ref = useRef<THREE.Mesh>(null!);
   const textures = useTexture({
     map: './textures/planet/planet_color.png',
     //displacementMap: './textures/planet/planet_height.jpg',
@@ -68,29 +44,33 @@ function Planet() {
   fiveTone.minFilter = THREE.NearestFilter
   fiveTone.magFilter = THREE.NearestFilter
 
+  const customTone = useTexture('gradientMaps/custom.png')
+  customTone.minFilter = THREE.NearestFilter
+  customTone.magFilter = THREE.NearestFilter
+
   useFrame(() => {
     
   })
 
   return (
-    <mesh ref={planetRef} position={[1.2, -0.5 ,0]}>
+    <mesh ref={ref} position={[1.4, -0.5 ,0]}>
       <sphereGeometry args={[1.3, 100, 100]} />
       {/* <meshStandardMaterial color='gray' /> */}
       {/* <meshStandardMaterial {...textures} normalMap-encoding={LinearEncoding} /> */}
-      <meshToonMaterial color='gray' gradientMap={fiveTone}/>
+      <meshToonMaterial color='gray' gradientMap={customTone}/>
     </mesh>
   )
 }
 
 function CursorLight() {
-  const cursorLightRef = useRef<THREE.PointLight>(null!);
+  const ref = useRef<THREE.PointLight>(null!);
 
   useFrame(() => {
     
   })
 
   return (
-    <pointLight ref={cursorLightRef} position={[-10, 5, 5]} intensity={1} />
+    <pointLight ref={ref} position={[-10, 5, 5]} intensity={1} />
   )
 }
 
@@ -121,9 +101,9 @@ function Scene() {
         <CursorLight />
         <Stars />
 
-        
+        <Planet1 />
         <Float speed={0.1} rotationIntensity={1.0} floatIntensity={0.1}>
-          <Planet />
+          <CentrePlanet />
         </Float>
 
         {/* <OrbitControls /> */}
