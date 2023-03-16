@@ -15,7 +15,7 @@ function Ring() {
   return (
     <mesh ref={ref} position={[-1, 0, -2]} rotation={[deg(90), deg(0), deg(0), 'XYZ']}>
       <torusGeometry args={[4.15, 0.005, 16, 200]} />
-      <meshToonMaterial color='gray' />
+      <meshToonMaterial color={'#8d8d8d'} />
     </mesh>
   )
 }
