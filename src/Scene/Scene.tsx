@@ -12,6 +12,7 @@ import CameraHelper from './CameraHelper'
 
 //Orbit Objects
 import Planet1 from './Objects/Planet1'
+import Planet2 from './Objects/Planet2'
 
 const deg = (degrees: number) => degrees * (Math.PI / 180)
 
@@ -27,21 +28,24 @@ function Scene() {
       far:350
     }}>
       
+      {/* Standard scene stuff */}
+      <ambientLight intensity={0.5}/>
+      <Light />
+      <Stars />
 
-        <ambientLight intensity={0.5}/>
-        {/* <pointLight position={[5, 5, 5]} intensity={5} /> */}
-        <Light />
-        <Stars />
+      <Ring />
+      <Float speed={0.1} rotationIntensity={1.0} floatIntensity={0.1}>
+        <MainPlanet />
+      </Float>
 
-        <Planet1 />
-        <Ring />
-        <Float speed={0.1} rotationIntensity={1.0} floatIntensity={0.1}>
-          <MainPlanet />
-        </Float>
+      {/* Orbit objects */}
+      <Planet1 />
+      <Planet2 />
 
-        {/* <OrbitControls /> */}
-        {/* <CameraHelper /> */}
-        {/* <axesHelper args={[10]} /> */}
+      {/* Debug objects */}
+      {/* <OrbitControls /> */}
+      {/* <CameraHelper /> */}
+      {/* <axesHelper args={[10]} /> */}
       
     </Canvas>
   )
