@@ -39,7 +39,7 @@ function MainPlanet() {
       <sphereGeometry args={[1.3, 100, 100]} />
       {/* <meshStandardMaterial color='gray' /> */}
       {/* <meshStandardMaterial {...textures} normalMap-encoding={LinearEncoding} /> */}
-      <meshToonMaterial color={'#88888b'} gradientMap={customTone}/>
+      <meshToonMaterial color={'#88888b'} gradientMap={customTone} />
     </mesh>
   )
 }

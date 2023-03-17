@@ -7,12 +7,12 @@ import * as manager from '../../ScrollManager'
 
 const pos: number[] = [-1, 0 , -2];
 const radius: number = 4.15;
-const id: number = 1;
+const id: number = 2;
 
-let degrees: number = 0;
+let degrees: number = 300;
 
-function Dots() {
-  const ref = useRef<THREE.Points>(null!);
+function Planet() {
+  const ref = useRef<THREE.Mesh>(null!);
 
   useFrame(() => {
     
@@ -21,31 +21,17 @@ function Dots() {
     //   degrees -= 360
     // }
     degrees = manager.getPosition(id)
-
+    
     ref.current.position.set(pos[0] + radius * Math.sin(manager.deg(degrees)), pos[1], pos[2] + radius * Math.cos(manager.deg(degrees)));
-    ref.current.rotateY(0.0002)
-  })
-
-  return (
-    <points ref={ref} position={[0, 0, 0]} >
-      <icosahedronGeometry args={[0.2, 5]} />
-      <pointsMaterial color='white' size={0.01} />
-    </points>
-  )
-}
-
-function Planet() {
-  const ref = useRef<THREE.Mesh>(null!);
-
-  useFrame(() => {
-    degrees = manager.getPosition(id)
-    ref.current.position.set(pos[0] + radius * Math.sin(manager.deg(degrees)), pos[1], pos[2] + radius * Math.cos(manager.deg(degrees)));
+    ref.current.rotateX(0.005)
+    ref.current.rotateY(0.002)
+    ref.current.rotateZ(0.009)
   })
 
   return (
     <mesh ref={ref} position={[0, 0, 0]}>
-      <sphereGeometry args={[0.23, 50, 50]} />
-      <meshStandardMaterial color={'#080917'} side={THREE.BackSide} />
+      <torusGeometry args={[0.2, 0.05]} />
+      <meshStandardMaterial color={'#656775'} />
     </mesh>
   )
 }
@@ -54,7 +40,6 @@ function Collection() {
   return (
     <>
       <Planet />
-      <Dots />
     </>
   )
 }
