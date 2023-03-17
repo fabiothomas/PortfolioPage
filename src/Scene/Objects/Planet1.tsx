@@ -50,11 +50,25 @@ function Planet() {
   )
 }
 
+// function Light() {
+//   const ref = useRef<THREE.PointLight>(null!);
+
+//   useFrame(() => {
+//     degrees = manager.getPosition(id)
+//     ref.current.position.set(pos[0] + radius * Math.sin(manager.deg(degrees)), pos[1], pos[2] + radius * Math.cos(manager.deg(degrees)));
+//   })
+
+//   return (
+//     <pointLight ref={ref} position={[0, 0, 0]} intensity={0.1} />
+//   )
+// }
+
 function Collection() {
   return (
     <>
       <Planet />
       <Dots />
+      {/* <Light /> */}
     </>
   )
 }

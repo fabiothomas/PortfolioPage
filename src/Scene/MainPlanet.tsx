@@ -3,6 +3,8 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import { useTexture } from '@react-three/drei'
 
+import * as manager from '../ScrollManager'
+
 function MainPlanet() {
   const ref = useRef<THREE.Mesh>(null!);
   const textures = useTexture({
@@ -31,7 +33,7 @@ function MainPlanet() {
   customTone.magFilter = THREE.NearestFilter
 
   useFrame(() => {
-    
+    manager.update()
   })
 
   return (
