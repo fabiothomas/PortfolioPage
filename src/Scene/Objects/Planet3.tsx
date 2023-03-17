@@ -7,7 +7,7 @@ import * as manager from '../../ScrollManager'
 
 const pos: number[] = [-1, 0 , -2];
 const radius: number = 4.15;
-const id: number = 2;
+const id: number = 3;
 
 let degrees: number;
 
@@ -31,7 +31,7 @@ function Planet() {
   return (
     <mesh ref={ref} position={[0, 0, 0]}>
       <torusGeometry args={[0.2, 0.05]} />
-      <meshStandardMaterial color={'#656775'} />
+      <meshStandardMaterial color={'blue'} />
     </mesh>
   )
 }

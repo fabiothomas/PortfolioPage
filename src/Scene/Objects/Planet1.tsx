@@ -9,7 +9,7 @@ const pos: number[] = [-1, 0 , -2];
 const radius: number = 4.15;
 const id: number = 1;
 
-let degrees: number = 0;
+let degrees: number;
 
 function Dots() {
   const ref = useRef<THREE.Points>(null!);

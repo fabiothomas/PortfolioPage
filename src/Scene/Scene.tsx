@@ -15,22 +15,21 @@ import CameraHelper from './CameraHelper'
 //Orbit Objects
 import Planet1 from './Objects/Planet1'
 import Planet2 from './Objects/Planet2'
+import Planet3 from './Objects/Planet3'
 
 function Scene() {
 
   useEffect(() => {
     const keyDownHandler = (event: any) => {
-      //console.log('User pressed: ', event.key);
-
       if (event.key === 'ArrowRight') {
         event.preventDefault();
 
-        manager.increaseActive();
+        manager.decreaseActive();
       }
       if (event.key === 'ArrowLeft') {
         event.preventDefault();
 
-        manager.decreaseActive();
+        manager.increaseActive();
       }
     };
 
@@ -38,6 +37,23 @@ function Scene() {
 
     return () => {
       document.removeEventListener('keydown', keyDownHandler);
+    };
+  }, []);
+
+  useEffect(() => {
+    const scrollHandler = (event: any) => {
+      if (event.deltaY > 0) {
+        manager.smoothIncreaseActive();
+      }
+      else {
+        manager.smoothDecreaseActive();
+      }
+    }
+
+    document.addEventListener('wheel', scrollHandler);
+
+    return () => {
+      document.removeEventListener('wheel', scrollHandler);
     };
   }, []);
 
@@ -64,6 +80,7 @@ function Scene() {
       {/* Orbit objects */}
       <Planet1 />
       <Planet2 />
+      <Planet3 />
 
       {/* Debug objects */}
       {/* <OrbitControls /> */}
