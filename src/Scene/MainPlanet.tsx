@@ -37,7 +37,7 @@ function MainPlanet() {
   })
 
   return (
-    <mesh ref={ref} position={[1.4, -0.5 ,0]}>
+    <mesh ref={ref} position={[1.4, -0.5 ,0]} >
       <sphereGeometry args={[1.3, 100, 100]} />
       {/* <meshStandardMaterial color='gray' /> */}
       {/* <meshStandardMaterial {...textures} normalMap-encoding={LinearEncoding} /> */}
