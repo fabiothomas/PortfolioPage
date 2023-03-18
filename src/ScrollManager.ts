@@ -1,3 +1,5 @@
+import * as path from './PathManager'
+
 const basePositions: { [name: number]: number } = {
   1: 0,
   2: 330,
@@ -6,18 +8,20 @@ const basePositions: { [name: number]: number } = {
 const totalPositions = 3
 const standardOffset = 20
 
+let scrolling = 0 //scrolling cooldown before automatic correction
+let active = path.getPathId() //indicates which object is selected
+let state = 0 //indicates which object is shown, is '0' when no object is shown
+
 const targetOffset = (() => ((360 - basePositions[active]) + standardOffset) % 360)
 const selTargetOffset = ((id: number) => ((360 - basePositions[id]) + standardOffset) % 360)
-const moveStrengt = (() => Math.min(10, Math.abs(targetOffset() - realOffset), Math.max(5, Math.abs(prevOffset - realOffset))))
-let realOffset = 0;
-let prevOffset = 0;
-let direction = 'left'
-
-let scrolling = 0
-let active = 1
+const moveStrengt = (() => Math.min(10, Math.max(1, Math.abs(targetOffset() - realOffset)), Math.max(5, Math.abs(prevOffset - realOffset))))
+let realOffset = selTargetOffset(active);
+let prevOffset = selTargetOffset(active); 
+let direction = 'left' //direction in which objects move
 
 // Useful functions
 export function update() {
+
   if (scrolling > 0) {
     scrolling -= 1
 
@@ -48,7 +52,6 @@ export function update() {
             direct = 'right'
           }
         }
-        console.log(result)
         if (result < record) {
           record = result
           targetId = i
@@ -61,7 +64,8 @@ export function update() {
 
     return
   }
-  if (targetOffset() !== realOffset) {
+  if (Math.floor(targetOffset()) !== Math.floor(realOffset)) {
+    state = 0
     if (direction === 'left') {
       realOffset += moveStrengt() / 5
       if (realOffset > 360) {
@@ -73,6 +77,13 @@ export function update() {
       if (realOffset < 0) {
         realOffset += 360
       }
+    }
+  }
+  else {
+    if (state === 0 || state !== active) {
+      state = active
+
+      path.updatePath(state)
     }
   }
 }

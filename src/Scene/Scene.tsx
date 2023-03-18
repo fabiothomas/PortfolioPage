@@ -21,12 +21,27 @@ function Scene() {
 
   useEffect(() => {
     const keyDownHandler = (event: any) => {
+      if (event.key === ' ') {
+        event.preventDefault();
+
+        manager.increaseActive();
+      }
       if (event.key === 'ArrowRight') {
         event.preventDefault();
 
         manager.decreaseActive();
       }
+      if (event.key === 'ArrowDown') {
+        event.preventDefault();
+
+        manager.decreaseActive();
+      }
       if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+
+        manager.increaseActive();
+      }
+      if (event.key === 'ArrowUp') {
         event.preventDefault();
 
         manager.increaseActive();
