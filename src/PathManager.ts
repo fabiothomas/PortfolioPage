@@ -24,10 +24,7 @@ export function getPathId(): number {
   //let result = Object.keys(pathReference).find((key: any) => pathReference[key] === window.location.pathname)
   let result = routes[path] || routes["404"]
 
-  if (result != null) {
-    return +result
-  }
-  return 1;
+  return +result;
 }
 
 window.onpopstate = (event) => {

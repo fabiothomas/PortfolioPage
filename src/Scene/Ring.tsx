@@ -6,52 +6,46 @@ import { useTexture } from '@react-three/drei'
 import * as manager from '../ScrollManager'
 
 const offsetFix: number = manager.deg(90);
-
-const offset1: number = manager.deg(6);
-const length1: number = manager.deg(18);
-const offset2: number = manager.deg(36);
-const length2: number = manager.deg(318);
-
 let degrees: number;
+const quality: number = 130;
 
 function Section1() {
-  const ref = useRef<THREE.Mesh>(null!);
-
-  useFrame(() => {
-    degrees = manager.getPosition(1)
-    ref.current.rotation.set(manager.deg(90), 0, -(manager.deg(degrees)) + offsetFix + offset1, 'XYZ')
-  })
+  const offset: number = 6;
+  const length: number = 18;
 
   return (
-    <mesh ref={ref} position={[-1, 0, -2]} rotation={[manager.deg(90), manager.deg(0), manager.deg(offsetFix + offset1), 'XYZ']}>
-      <torusGeometry args={[4.15, 0.005, 16, 200, length1]} />
+    <mesh rotation={[manager.deg(0), manager.deg(0), manager.deg(offset), 'XYZ']}>
+      <torusGeometry args={[4.15, 0.005, 5, quality / 360 * length, manager.deg(length)]} />
       <meshToonMaterial color={'#8d8d8d'} side={THREE.DoubleSide} />
     </mesh>
   )
 }
 
 function Section2() {
-  const ref = useRef<THREE.Mesh>(null!);
-
-  useFrame(() => {
-    degrees = manager.getPosition(1)
-    ref.current.rotation.set(manager.deg(90), 0, -(manager.deg(degrees)) + offsetFix + offset2, 'XYZ')
-  })
+  const offset: number = 36;
+  const length: number = 318;
 
   return (
-    <mesh ref={ref} position={[-1, 0, -2]} rotation={[manager.deg(90), manager.deg(0), manager.deg(offsetFix + offset2), 'XYZ']}>
-      <torusGeometry args={[4.15, 0.005, 16, 200, length2]} />
+    <mesh rotation={[manager.deg(0), manager.deg(0), manager.deg(offset), 'XYZ']}>
+      <torusGeometry args={[4.15, 0.005, 5, quality / 360 * length, manager.deg(length)]} />
       <meshToonMaterial color={'#8d8d8d'} side={THREE.DoubleSide} />
     </mesh>
   )
 }
 
 function Ring() {
+  const ref = useRef<THREE.Group>(null!);
+
+  useFrame(() => {
+    degrees = manager.getPosition(1)
+    ref.current.rotation.set(manager.deg(90), 0, -(manager.deg(degrees)) + offsetFix, 'XYZ')
+  })
+
   return (
-    <>
+    <group ref={ref} position={[-1, 0, -2]} rotation={[manager.deg(90), manager.deg(0), offsetFix, 'XYZ']}>
       <Section1 />
       <Section2 />
-    </>
+    </group>
   )
 }
 

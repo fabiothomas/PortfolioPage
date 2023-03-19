@@ -5,6 +5,8 @@ import './App.css'
 
 import Scene from './Scene/Scene'
 
+import Aboutme from './Pages/Aboutme'
+
 function Loading() {
   return (
     <>
@@ -22,6 +24,12 @@ function App() {
       <Suspense fallback={Loading()}>
         <Scene />
         {/* <img className="wave" src={waveSVG} alt="Wave" /> */}
+        <div className="page">
+          <Aboutme />
+        </div>
+        <div className="title">
+          <h1>fabiothomas</h1>
+        </div>
       </Suspense>
     </div>
   )
