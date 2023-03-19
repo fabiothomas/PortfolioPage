@@ -1,11 +1,11 @@
 import { useState, useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
-import { useTexture } from '@react-three/drei'
+import { useTexture, Sparkles } from '@react-three/drei'
 
 import * as manager from '../ScrollManager'
 
-function MainPlanet() {
+function MainPlanet(props: {toggle: React.Dispatch<React.SetStateAction<boolean>>}) {
   const ref = useRef<THREE.Mesh>(null!);
   const textures = useTexture({
     map: './textures/planet/planet_color.png',
@@ -34,6 +34,7 @@ function MainPlanet() {
 
   useFrame(() => {
     manager.update()
+    props.toggle((manager.getState() === 404))
   })
 
   return (

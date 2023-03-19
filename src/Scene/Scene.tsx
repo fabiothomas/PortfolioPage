@@ -13,6 +13,7 @@ import Ring from './Ring'
 import CameraHelper from './CameraHelper'
 
 //Orbit Objects
+import NotFound from './Objects/NotFound'
 import Planet1 from './Objects/Planet1'
 import Planet2 from './Objects/Planet2'
 import Planet3 from './Objects/Planet3'
@@ -72,6 +73,8 @@ function Scene() {
     };
   }, []);
 
+  const [notFound, setNotFound] = useState(false);
+
   return (
     <Canvas camera={{ 
       position: [2, 1, 2], 
@@ -89,10 +92,11 @@ function Scene() {
 
       <Ring />
       <Float speed={0.1} rotationIntensity={1.0} floatIntensity={0.1}>
-        <MainPlanet />
+        <MainPlanet toggle={setNotFound} />
       </Float>
 
       {/* Orbit objects */}
+      {notFound && <NotFound />}
       <Planet1 />
       <Planet2 />
       <Planet3 />

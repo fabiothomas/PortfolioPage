@@ -1,6 +1,7 @@
 import * as path from './PathManager'
 
 const basePositions: { [name: number]: number } = {
+  404: 30,
   1: 0,
   2: 330,
   3: 100,
@@ -99,6 +100,10 @@ export function getPosition(id: number) {
   return basePositions[id] + realOffset;
 }
 
+export function getState() {
+  return state
+}
+
 export function setActive(id: number) {
   if (basePositions[active] != null) {
     prevOffset = realOffset
@@ -145,4 +150,3 @@ export function smoothDecreaseActive() {
 export function deg(degrees: number) {
   return degrees * (Math.PI / 180)
 }
-
