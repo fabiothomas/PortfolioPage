@@ -18,7 +18,7 @@ import Planet1 from './Objects/Planet1'
 import Planet2 from './Objects/Planet2'
 import Planet3 from './Objects/Planet3'
 
-function Scene() {
+function Scene(props: {state: number ,setState: React.Dispatch<React.SetStateAction<number>>}) {
 
   useEffect(() => {
     const keyDownHandler = (event: any) => {
@@ -73,8 +73,6 @@ function Scene() {
     };
   }, []);
 
-  const [notFound, setNotFound] = useState(false);
-
   return (
     <Canvas camera={{ 
       position: [2, 1, 2], 
@@ -92,11 +90,11 @@ function Scene() {
 
       <Ring />
       <Float speed={0.1} rotationIntensity={1.0} floatIntensity={0.1}>
-        <MainPlanet toggle={setNotFound} />
+        <MainPlanet setState={props.setState} />
       </Float>
 
       {/* Orbit objects */}
-      {notFound && <NotFound />}
+      {props.state === 404 && <NotFound />}
       <Planet1 />
       <Planet2 />
       <Planet3 />

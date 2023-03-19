@@ -125,7 +125,7 @@ export function decreaseActive() {
   prevOffset = realOffset
   active -= 1
   direction = 'right'
-  if (active < 1) {
+  if (active < 1 || active > totalPositions) {
     active = totalPositions
   }
 }
