@@ -5,7 +5,7 @@ import { MeshDistortMaterial, useTexture } from '@react-three/drei'
 
 import * as manager from '../../ScrollManager'
 
-const pos: number[] = [-1, 0 , -2];
+const pos: number[] = [-1, 0, -2];
 const radius: number = 4.15;
 const id: number = 3;
 
@@ -16,30 +16,29 @@ function Planet() {
 
   useFrame(() => {
     
-    // degrees += 0.1
-    // if (degrees > 360) {
-    //   degrees -= 360
-    // }
-    degrees = manager.getPosition(id)
-
-    ref.current.rotation.set(0, manager.deg(degrees + 90), 0);
-    ref.current.position.set(pos[0] + radius * Math.sin(manager.deg(degrees)), pos[1], pos[2] + radius * Math.cos(manager.deg(degrees)));
   })
 
   return (
-    <mesh ref={ref} position={[0, 0, 0]}>
-      <torusGeometry args={[0.2, 0.05]} />
-      {/* <meshStandardMaterial color={'blue'} /> */}
+    <mesh ref={ref} >
+      <torusGeometry args={[0.2, 0.05, 20, 30]} />
       <MeshDistortMaterial distort={1} speed={1} color={'blue'} />
     </mesh>
   )
 }
 
 function Collection() {
+  const ref = useRef<THREE.Group>(null!);
+
+  useFrame(() => {
+    degrees = manager.getPosition(id)
+    ref.current.position.set(pos[0] + radius * Math.sin(manager.deg(degrees)), pos[1], pos[2] + radius * Math.cos(manager.deg(degrees)));
+    ref.current.rotation.set(0, manager.deg(degrees + 90), 0);
+  })
+
   return (
-    <>
+    <group ref={ref} >
       <Planet />
-    </>
+    </group>
   )
 }
 export default Collection;

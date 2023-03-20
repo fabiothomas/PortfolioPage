@@ -1,6 +1,7 @@
 import * as path from './PathManager'
 
 const basePositions: { [name: number]: number } = {
+  404: 30,
   1: 0,
   2: 330,
   3: 100,
@@ -14,7 +15,7 @@ let state = 0 //indicates which object is shown, is '0' when no object is shown
 
 const targetOffset = (() => ((360 - basePositions[active]) + standardOffset) % 360)
 const selTargetOffset = ((id: number) => ((360 - basePositions[id]) + standardOffset) % 360)
-const moveStrengt = (() => Math.min(10, Math.max(1, Math.abs(targetOffset() - realOffset)), Math.max(5, Math.abs(prevOffset - realOffset))))
+const moveStrengt = (() => Math.min(10, Math.max(0.1, Math.abs(targetOffset() - realOffset)), Math.max(5, Math.abs(prevOffset - realOffset))))
 let realOffset = selTargetOffset(active);
 let prevOffset = selTargetOffset(active); 
 let direction = 'left' //direction in which objects move
@@ -99,6 +100,10 @@ export function getPosition(id: number) {
   return basePositions[id] + realOffset;
 }
 
+export function getState() {
+  return state
+}
+
 export function setActive(id: number) {
   if (basePositions[active] != null) {
     prevOffset = realOffset
@@ -120,7 +125,7 @@ export function decreaseActive() {
   prevOffset = realOffset
   active -= 1
   direction = 'right'
-  if (active < 1) {
+  if (active < 1 || active > totalPositions) {
     active = totalPositions
   }
 }
@@ -145,4 +150,3 @@ export function smoothDecreaseActive() {
 export function deg(degrees: number) {
   return degrees * (Math.PI / 180)
 }
-

@@ -7,36 +7,23 @@ import * as manager from '../../ScrollManager'
 
 const pos: number[] = [-1, 0, -2];
 const radius: number = 4.15;
-const id: number = 1;
+const id: number = 404;
 
 let degrees: number;
-
-function Dots() {
-  const ref = useRef<THREE.Points>(null!);
-
-  useFrame(() => {
-    ref.current.rotateY(0.0002)
-  })
-
-  return (
-    <points ref={ref} >
-      <icosahedronGeometry args={[0.2, 5]} />
-      <pointsMaterial color='white' size={0.01} />
-    </points>
-  )
-}
 
 function Planet() {
   const ref = useRef<THREE.Mesh>(null!);
 
   useFrame(() => {
-    
+    ref.current.rotateX(0.005)
+    ref.current.rotateY(0.002)
+    ref.current.rotateZ(0.009)
   })
 
   return (
     <mesh ref={ref} >
-      <sphereGeometry args={[0.23, 30, 30]} />
-      <meshStandardMaterial color={'#080917'} side={THREE.BackSide} />
+      <torusGeometry args={[0.2, 0.05, 20, 30]} />
+      <meshStandardMaterial color={'#656775'} />
     </mesh>
   )
 }
@@ -52,7 +39,6 @@ function Collection() {
   return (
     <group ref={ref} >
       <Planet />
-      <Dots />
     </group>
   )
 }
