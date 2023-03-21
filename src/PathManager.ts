@@ -1,21 +1,20 @@
 import * as manager from './ScrollManager'
 
-const pathReference: { [name: number]: string } = {
-  1: '/aboutme',
-  2: '/education',
-  3: '/work',
-}
-
 const routes: { [name: string]: number } = {
-  "404": 404,
-  "/": 1,
   "/aboutme": 1,
   "/education": 2,
   "/work": 3,
+
+  "/": 1,
+  "404": 404
 }
 
 export function updatePath(id: number) {
-  window.history.pushState({}, '', pathReference[id])
+  const path = Object.keys(routes).find((key: any) => routes[key] === id)
+
+  if (path !== "404") {
+    window.history.pushState({}, '', path)
+  }
 }
 
 export function getPathId(): number {
