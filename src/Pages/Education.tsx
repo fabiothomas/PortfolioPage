@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './page.css'
 
-function Page() {
+function Page(props: {state: number}) {
 
 
   return (
