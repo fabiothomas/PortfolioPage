@@ -1,9 +1,11 @@
 import { Suspense, useState, useEffect } from 'react'
+import { animated, useSpring } from '@react-spring/web'
 import waveSVG from './assets/wave2.svg'
 import { RingLoader } from 'react-spinners'
 import './App.css'
 
 import Scene from './Scene/Scene'
+import * as springs from './SpringManager'
 
 // Pages
 import NotFound from './Pages/NotFound'
@@ -30,10 +32,10 @@ function App() {
         <Scene state={state} setState={setState} />
         {/* <img className="wave" src={waveSVG} alt="Wave" /> */}
         <div>
-          {state === 404 && <NotFound />}
-          {state === 1 && <Aboutme />}
-          {state === 2 && <Education />}
-          {state === 3 && <Work />}
+          {springs.Fade(state === 404, <NotFound state={state} />)}
+          {springs.Fade(state === 1, <Aboutme state={state} />)}
+          {springs.Fade(state === 2, <Education state={state} />)}
+          {springs.Fade(state === 3, <Work state={state} />)}
         </div>
         <div className="title">
           <h1>fabiothomas</h1>

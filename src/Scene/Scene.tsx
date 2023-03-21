@@ -59,10 +59,10 @@ function Scene(props: {state: number ,setState: React.Dispatch<React.SetStateAct
   useEffect(() => {
     const scrollHandler = (event: any) => {
       if (event.deltaY > 0) {
-        manager.smoothIncreaseActive();
+        manager.smoothDecreaseActive();
       }
       else {
-        manager.smoothDecreaseActive();
+        manager.smoothIncreaseActive();
       }
     }
 

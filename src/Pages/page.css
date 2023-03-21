@@ -11,3 +11,21 @@
   justify-content: center;
   flex-direction: column;
 }
+
+.text {
+  width: 40vw;
+}
+
+.blob {
+  position: absolute;
+  right: 0vw;
+  height: 100vh;
+  width: 50vw;
+}
+
+.blob2 {
+  position: absolute;
+  right: 0vw;
+  height: 100vh;
+  width: 50vw;
+}
