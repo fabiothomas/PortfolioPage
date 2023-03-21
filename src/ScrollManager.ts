@@ -15,7 +15,7 @@ let state = 0 //indicates which object is shown, is '0' when no object is shown
 
 const targetOffset = (() => ((360 - basePositions[active]) + standardOffset) % 360)
 const selTargetOffset = ((id: number) => ((360 - basePositions[id]) + standardOffset) % 360)
-const moveStrengt = (() => Math.min(10, Math.max(1, Math.abs(targetOffset() - realOffset)), Math.max(5, Math.abs(prevOffset - realOffset))))
+const moveStrengt = (() => Math.min(10, Math.max(0.1, Math.abs(targetOffset() - realOffset)), Math.max(5, Math.abs(prevOffset - realOffset))))
 let realOffset = selTargetOffset(active);
 let prevOffset = selTargetOffset(active); 
 let direction = 'left' //direction in which objects move
