@@ -12,6 +12,7 @@ import NotFound from './Pages/NotFound'
 import Aboutme from './Pages/Aboutme'
 import Education from './Pages/Education'
 import Work from './Pages/Work'
+import ComingSoon from './Pages/ComingSoon'
 
 function Loading() {
   return (
@@ -36,6 +37,7 @@ function App() {
           {springs.Fade(state === 1, <Aboutme state={state} />)}
           {springs.Fade(state === 2, <Education state={state} />)}
           {springs.Fade(state === 3, <Work state={state} />)}
+          {springs.Fade(state === 4, <ComingSoon state={state} />)}
         </div>
         <div className="title">
           <h1>fabiothomas</h1>

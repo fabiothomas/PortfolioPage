@@ -1,12 +1,16 @@
 import * as path from './PathManager'
 
 const basePositions: { [name: number]: number } = {
-  404: 30,
+  404: 45,
   1: 0,
-  2: 330,
-  3: 100,
+  2: 315,
+  3: 270,
+  4: 225,
+  5: 180,
+  6: 135,
+  7: 90,
 }
-const totalPositions = 3
+const totalPositions = 4
 const standardOffset = 20
 
 let scrolling = 0 //scrolling cooldown before automatic correction
