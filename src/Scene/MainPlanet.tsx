@@ -37,9 +37,10 @@ function MainPlanet(props: {setState: React.Dispatch<React.SetStateAction<number
     props.setState(manager.getState)
   })
 
+  // position: [1.4, -0.5 ,0] [1.3, 50, 50]
   return (
-    <mesh ref={ref} position={[1.4, -0.5 ,0]} >
-      <sphereGeometry args={[1.3, 50, 50]} />
+    <mesh ref={ref} position={[1.1, -0.2, -0.5]} >
+      <sphereGeometry args={[1.5, 50, 50]} />
       {/* <meshStandardMaterial color='gray' /> */}
       {/* <meshStandardMaterial {...textures} normalMap-encoding={LinearEncoding} /> */}
       <meshToonMaterial color={'#88888b'} gradientMap={customTone} />

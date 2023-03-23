@@ -17,6 +17,7 @@ import NotFound from './Objects/NotFound'
 import Planet1 from './Objects/Planet1'
 import Planet2 from './Objects/Planet2'
 import Planet3 from './Objects/Planet3'
+import Planet4 from './Objects/Planet4'
 
 function Scene(props: {state: number ,setState: React.Dispatch<React.SetStateAction<number>>}) {
 
@@ -98,6 +99,7 @@ function Scene(props: {state: number ,setState: React.Dispatch<React.SetStateAct
       <Planet1 />
       <Planet2 />
       <Planet3 />
+      <Planet4 />
 
       {/* Debug objects */}
       {/* <OrbitControls /> */}
