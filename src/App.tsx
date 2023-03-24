@@ -1,11 +1,14 @@
 import { Suspense, useState, useEffect } from 'react'
 import { animated, useSpring } from '@react-spring/web'
-import waveSVG from './assets/wave2.svg'
+import svg from './assets/blob1.svg'
 import { RingLoader } from 'react-spinners'
+
 import './App.css'
 
 import Scene from './Scene/Scene'
 import * as springs from './SpringManager'
+
+import Navigation from './Navigation'
 
 // Pages
 import NotFound from './Pages/NotFound'
@@ -41,6 +44,9 @@ function App() {
         </div>
         <div className="title">
           <h1>fabiothomas</h1>
+          <Navigation />
+          {/* <BeakerIcon className="svg" /> */}
+          {/* <img className="svg" src={svg} alt="Wave" /> */}
         </div>
       </Suspense>
     </div>

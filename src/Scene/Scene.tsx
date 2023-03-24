@@ -9,6 +9,7 @@ import * as manager from '../ScrollManager'
 import Light from './Light'
 import MainPlanet from './MainPlanet'
 import Ring from './Ring'
+import Rings from './Rings'
 
 import CameraHelper from './CameraHelper'
 
@@ -90,6 +91,7 @@ function Scene(props: {state: number ,setState: React.Dispatch<React.SetStateAct
       <Stars />
 
       <Ring />
+      <Rings />
       <Float speed={0.1} rotationIntensity={1.0} floatIntensity={0.1}>
         <MainPlanet setState={props.setState} />
       </Float>
