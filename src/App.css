@@ -28,15 +28,42 @@
   display: flex;
   flex-direction: row;
   padding: 0.2rem;
+  margin: 0.2rem;
 
-  width: 21rem;
+  /* width: 21rem; */
+  width: fit-content;
+  height: 1.75rem;
 
   background-color: #1f202e;
-  border-radius: 0.6vw;
+  border-radius: 0.6rem;
+}
+
+.svg-clickable {
+  cursor: pointer;
+}
+
+.svg-selector {
+  width: 2.75rem;
+  height: 2.75rem;
+
+  margin: -0.5rem;
+  border-radius: 0.6rem;
+
+  position: absolute;
+}
+
+.svg-selector-underlay {
+  background-color: #1f202e;
+  z-index: -1;
+}
+
+.svg-selector-overlay {
+  background-color: #8d8d8d;
+  opacity: 0;
 }
 
 .svg {
-  width: 100rem;
+  width: 1.75rem;
 
   color: #8d8d8d;
 }
