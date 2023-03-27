@@ -12,7 +12,7 @@
   transform: translate(-50%, -50%);
 }
 
-.title {
+.header {
   position: absolute;
   left: 0;
   top: 0;
@@ -54,16 +54,17 @@
 
 .svg-selector-underlay {
   background-color: #1f202e;
-  z-index: -1;
+  z-index: 0;
 }
 
 .svg-selector-overlay {
   background-color: #8d8d8d;
-  opacity: 0;
+  opacity: 0.2;
 }
 
 .svg {
   width: 1.75rem;
+  z-index: 1;
 
   color: #8d8d8d;
 }

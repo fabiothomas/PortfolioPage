@@ -12,8 +12,15 @@
   flex-direction: column;
 }
 
+.title {
+  background-color: #1f202e;
+  border-radius: 0.6rem;
+  padding: 0.4rem;
+}
+
 .text {
   width: 40vw;
+  text-align: center;
 }
 
 .blob {

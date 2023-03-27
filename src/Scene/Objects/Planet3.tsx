@@ -21,7 +21,7 @@ function Planet() {
   return (
     <mesh ref={ref} >
       <torusGeometry args={[0.2, 0.05, 20, 30]} />
-      <MeshDistortMaterial distort={1} speed={1} color={'blue'} />
+      <MeshDistortMaterial distort={1} speed={1} color={'#8d8d8d'} />
     </mesh>
   )
 }

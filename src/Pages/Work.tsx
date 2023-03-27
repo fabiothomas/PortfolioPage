@@ -6,9 +6,9 @@ function Page(props: {state: number}) {
 
   return (
     <div className="page">
-      <h1>Work</h1>
-      <p>W.I.P.</p>
-      <p>I still don't know what to tell you</p>
+      <h1 className="title">Work</h1>
+      <p className="text">W.I.P.</p>
+      <p className="text">I still don't know what to tell you</p>
     </div>
   )
 }
