@@ -108,11 +108,22 @@ export function getState() {
   return state
 }
 
+export function getActive() {
+  return active
+}
+
 export function setActive(id: number) {
   if (basePositions[active] != null) {
     prevOffset = realOffset
+
+    if (active < id) {
+      direction = 'left'
+    }
+    else {
+      direction = 'right'
+    }
+
     active = id
-    direction = 'right'
   }
 }
 

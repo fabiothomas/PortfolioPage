@@ -1,11 +1,14 @@
 import { Suspense, useState, useEffect } from 'react'
 import { animated, useSpring } from '@react-spring/web'
-import waveSVG from './assets/wave2.svg'
+import svg from './assets/blob1.svg'
 import { RingLoader } from 'react-spinners'
+
 import './App.css'
 
 import Scene from './Scene/Scene'
 import * as springs from './SpringManager'
+
+import Navigation from './Navigation'
 
 // Pages
 import NotFound from './Pages/NotFound'
@@ -26,11 +29,12 @@ function Loading() {
 
 function App() {
   const [state, setState] = useState(0);
+  const [active, setActive] = useState(0);
 
   return (
     <div className="container">
       <Suspense fallback={Loading()}>
-        <Scene state={state} setState={setState} />
+        <Scene state={state} setState={setState} setActive={setActive} />
         {/* <img className="wave" src={waveSVG} alt="Wave" /> */}
         <div>
           {springs.Fade(state === 404, <NotFound state={state} />)}
@@ -41,6 +45,7 @@ function App() {
         </div>
         <div className="title">
           <h1>fabiothomas</h1>
+          <Navigation active={active} />
         </div>
       </Suspense>
     </div>

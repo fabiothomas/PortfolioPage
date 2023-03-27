@@ -9,6 +9,7 @@ import * as manager from '../ScrollManager'
 import Light from './Light'
 import MainPlanet from './MainPlanet'
 import Ring from './Ring'
+import Rings from './Rings'
 
 import CameraHelper from './CameraHelper'
 
@@ -19,7 +20,7 @@ import Planet2 from './Objects/Planet2'
 import Planet3 from './Objects/Planet3'
 import Planet4 from './Objects/Planet4'
 
-function Scene(props: {state: number ,setState: React.Dispatch<React.SetStateAction<number>>}) {
+function Scene(props: {state: number ,setState: React.Dispatch<React.SetStateAction<number>>, setActive: React.Dispatch<React.SetStateAction<number>>}) {
 
   useEffect(() => {
     const keyDownHandler = (event: any) => {
@@ -90,8 +91,9 @@ function Scene(props: {state: number ,setState: React.Dispatch<React.SetStateAct
       <Stars />
 
       <Ring />
+      <Rings />
       <Float speed={0.1} rotationIntensity={1.0} floatIntensity={0.1}>
-        <MainPlanet setState={props.setState} />
+        <MainPlanet setState={props.setState} setActive={props.setActive} />
       </Float>
 
       {/* Orbit objects */}

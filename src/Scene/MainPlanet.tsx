@@ -5,7 +5,7 @@ import { useTexture, Sparkles } from '@react-three/drei'
 
 import * as manager from '../ScrollManager'
 
-function MainPlanet(props: {setState: React.Dispatch<React.SetStateAction<number>>}) {
+function MainPlanet(props: {setState: React.Dispatch<React.SetStateAction<number>>, setActive: React.Dispatch<React.SetStateAction<number>>}) {
   const ref = useRef<THREE.Mesh>(null!);
   const textures = useTexture({
     map: './textures/planet/planet_color.png',
@@ -35,6 +35,7 @@ function MainPlanet(props: {setState: React.Dispatch<React.SetStateAction<number
   useFrame(() => {
     manager.update()
     props.setState(manager.getState)
+    props.setActive(manager.getActive)
   })
 
   // position: [1.4, -0.5 ,0] [1.3, 50, 50]
