@@ -91,7 +91,7 @@ function Scene(props: {state: number ,setState: React.Dispatch<React.SetStateAct
       <Stars />
 
       <Ring />
-      <Rings />
+      {/* <Rings /> */}
       <Float speed={0.1} rotationIntensity={1.0} floatIntensity={0.1}>
         <MainPlanet setState={props.setState} setActive={props.setActive} />
       </Float>

@@ -9,7 +9,7 @@ import './App.css'
 function Navigation(props: {active: number}) {
   
   const styles = useSpring({
-    x: (props.active - 1) * 56
+    x: (props.active - 1) * 56,
   })
 
   return (
