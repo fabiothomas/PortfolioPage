@@ -4,8 +4,8 @@ import { createNoise2D } from 'simplex-noise';
 const noise2D = createNoise2D();
 let count = 0;
 let noise = 0;
-
-export function Fade(isVisible: boolean, children: JSX.Element, className?: string, data:number[] = [1, 2, 3]) {
+;
+export function Fade(isVisible: boolean, children: JSX.Element, className?: string, data:number[] = [1, 2, 3]) {  
   const styles = useSpring({
     opacity: isVisible ? 1 : 0
   })
