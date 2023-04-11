@@ -27,6 +27,10 @@ function Loading() {
   )
 }
 
+function Check(value: number, id: number) {
+  return value === id || value === 0
+}
+
 function App() {
   const [state, setState] = useState(0);
   const [active, setActive] = useState(0);
@@ -38,10 +42,10 @@ function App() {
         {/* <img className="wave" src={waveSVG} alt="Wave" /> */}
         <div>
           {/* {springs.Fade(state === 404, <NotFound state={state} />)} */}
-          {springs.Fade(state === 1, <Aboutme state={state} />)}
-          {/* {springs.Fade(state === 2, <Education state={state} />)}
-          {springs.Fade(state === 3, <Work state={state} />)}
-          {springs.Fade(state === 4, <ComingSoon state={state} />)} */}
+          {springs.Fade(state === 1, Check(state, 1) ? <Aboutme state={state} /> : <></>)}
+          {springs.Fade(state === 2, Check(state, 2) ? <Education state={state} /> : <></>)}
+          {springs.Fade(state === 3, Check(state, 3) ? <Work state={state} /> : <></>)}
+          {springs.Fade(state === 4, Check(state, 4) ? <ComingSoon state={state} /> : <></>)}
         </div>
         <div className="header">
           <h1>fabiothomas</h1>
