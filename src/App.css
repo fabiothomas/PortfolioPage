@@ -24,6 +24,10 @@
   color: #8d8d8d;
 }
 
+.header-title {
+  font-size: min(6vw, 3.2em);
+}
+
 .svg-container {
   display: flex;
   flex-direction: row;

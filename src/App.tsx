@@ -48,7 +48,7 @@ function App() {
           {springs.Fade(state === 4, Check(state, 4) ? <ComingSoon state={state} /> : <></>)}
         </div>
         <div className="header">
-          <h1>fabiothomas</h1>
+          <h1 className="header-title">fabiothomas</h1>
           <Navigation active={active} />
         </div>
       </Suspense>
