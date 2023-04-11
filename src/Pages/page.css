@@ -1,6 +1,6 @@
 .page {
   position: absolute;
-  top: 20svh;
+  top: 15svh;
   right: 0;
   height: 75svh;
   width: 50vw;
@@ -12,7 +12,8 @@
   flex-direction: column;
   gap: 2vh;
 
-  padding-top: 1em;
+  padding-top: 5svh;
+  padding-bottom: 5svh;
 
   overflow-y: auto;
   overflow-x: hidden;
