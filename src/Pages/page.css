@@ -1,17 +1,35 @@
 .page {
   position: absolute;
-  top: 0;
+  top: 20svh;
   right: 0;
-  height: 100vh;
+  height: 75svh;
   width: 50vw;
 
   transition: ease-in-out;
 
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   gap: 2vh;
+
+  padding-top: 1em;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  -webkit-mask-image: linear-gradient(
+    rgb(0 0 0 / 0),
+    rgb(0 0 0 / 1) 5%,
+    rgb(0 0 0 / 1) 95%,
+    rgb(0 0 0 / 0)
+  );
+  mask-image: linear-gradient(
+    rgb(0 0 0 / 0),
+    rgb(0 0 0 / 1) 5%,
+    rgb(0 0 0 / 1) 95%,
+    rgb(0 0 0 / 0)
+  );
+
 }
 
 .title {
@@ -20,15 +38,36 @@
   padding: 0.4vw;
 }
 
-.text-container {
+/* .text-container {
   width: 40vw;
 
   display: grid;
   grid-template-rows: repeat(4, 15vh);
   grid-template-columns: repeat(4, 1fr);
-  gap: 1vw;
+  gap: 1vw; 
 
-  /* width: 40vw; */
+ } */
+
+.text-container {
+  width: 40vw;
+
+  display: flex;
+  flex-direction: row;
+  gap: 2vw;
+}
+
+.text {
+  width: 19vw;
+
+  text-align: center;
+
+  background-color: rgba(31, 32, 46, 0.15);
+  border-radius: 0.6vw;
+  padding: 0.4vw;
+}
+
+.empty {
+  width: 19vw;
 }
 
 .blob {

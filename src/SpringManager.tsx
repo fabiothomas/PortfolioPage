@@ -29,3 +29,11 @@ export function Size(isVisible: boolean, children: JSX.Element, size: number, cl
 
   return <animated.div className={className} style={styles}>{children}</animated.div>
 }
+
+export function Scroll(children: JSX.Element, position: number, className?: string) {
+  const styles = useSpring({
+    top: position
+  })
+
+  return <animated.div className={className} style={styles}>{children}</animated.div>
+}

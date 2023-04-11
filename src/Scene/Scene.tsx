@@ -58,23 +58,6 @@ function Scene(props: {state: number ,setState: React.Dispatch<React.SetStateAct
     };
   }, []);
 
-  useEffect(() => {
-    const scrollHandler = (event: any) => {
-      if (event.deltaY > 0) {
-        manager.smoothDecreaseActive();
-      }
-      else {
-        manager.smoothIncreaseActive();
-      }
-    }
-
-    document.addEventListener('wheel', scrollHandler);
-
-    return () => {
-      document.removeEventListener('wheel', scrollHandler);
-    };
-  }, []);
-
   return (
     <Canvas camera={{ 
       position: [2, 1, 2], 
