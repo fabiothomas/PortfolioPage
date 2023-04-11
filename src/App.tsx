@@ -41,7 +41,7 @@ function App() {
         <Scene state={state} setState={setState} setActive={setActive} />
         {/* <img className="wave" src={waveSVG} alt="Wave" /> */}
         <div>
-          {/* {springs.Fade(state === 404, <NotFound state={state} />)} */}
+          {springs.Fade(state === 404, Check(state, 1) ? <NotFound state={state} /> : <></>)}
           {springs.Fade(state === 1, Check(state, 1) ? <Aboutme state={state} /> : <></>)}
           {springs.Fade(state === 2, Check(state, 2) ? <Education state={state} /> : <></>)}
           {springs.Fade(state === 3, Check(state, 3) ? <Work state={state} /> : <></>)}
