@@ -41,7 +41,7 @@ div {
 
 h1 {
   font-size: 3.2em;
-  line-height: 1.1;
+  line-height: 1.1em;
   margin: 0;
 
   -webkit-user-select: none; /* Safari */        
@@ -67,6 +67,27 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+::-webkit-scrollbar {
+  width: 1em;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(31, 32, 46, 0.50);
+  border-radius: 1em;
+  margin-block: 1em;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(31, 32, 46, 0.75);
+  border-radius: 100vw;
+  
+  transition: 1s ease-in-out 1s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(31, 32, 46, 1);
 }
 
 @media (prefers-color-scheme: light) {

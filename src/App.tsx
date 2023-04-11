@@ -37,11 +37,11 @@ function App() {
         <Scene state={state} setState={setState} setActive={setActive} />
         {/* <img className="wave" src={waveSVG} alt="Wave" /> */}
         <div>
-          {springs.Fade(state === 404, <NotFound state={state} />)}
+          {/* {springs.Fade(state === 404, <NotFound state={state} />)} */}
           {springs.Fade(state === 1, <Aboutme state={state} />)}
-          {springs.Fade(state === 2, <Education state={state} />)}
+          {/* {springs.Fade(state === 2, <Education state={state} />)}
           {springs.Fade(state === 3, <Work state={state} />)}
-          {springs.Fade(state === 4, <ComingSoon state={state} />)}
+          {springs.Fade(state === 4, <ComingSoon state={state} />)} */}
         </div>
         <div className="header">
           <h1>fabiothomas</h1>

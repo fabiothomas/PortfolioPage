@@ -6,6 +6,8 @@ import blob2 from '../assets/blob2.svg'
 
 import * as springs from '../SpringManager'
 
+let position = 0;
+
 function Page(props: {state: number}) {
 
   return (
@@ -13,15 +15,21 @@ function Page(props: {state: number}) {
       {/* {springs.Size(props.state === 1, <img className="blob2" src={blob2} alt="Wave" />, 2, "blob2")}
       {springs.Size(props.state === 1, <img className="blob" src={blob1} alt="Wave" />, 1, "blob")} */}
       <div className="page">
-          <h1 className="title">About Me</h1>
+        <h1 className="title">About Me</h1>
 
         <div className="text-container">
-          <p className="text">Hello my name is fabiothomas and i am absolutely honered that you're here lol</p>
+          <p className="text">Hello my name is fabiothomas and i am absolutely honered that you're here lolHello my name is fabiothomas and i am absolutely honered that you're here lolHello my name is fabiothomas and i am absolutely honered that you're here lolHello my name is fabiothomas and i am absolutely honered that you're here lol</p>
+          <p className="empty"></p>
+        </div>
+
+        <div className="text-container">
+          <p className="empty"></p>
           <p className="text">ok so have a look around i guess</p>
         </div>
+
       </div>
     </div>
   )
 }
 
-export default Page
+export default Page  
