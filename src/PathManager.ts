@@ -1,10 +1,11 @@
 import * as manager from './ScrollManager'
 
 const routes: { [name: string]: number } = {
-  "/aboutme": 1,
-  "/education": 2,
+  "/aboutme": 2,
   "/work": 3,
-  "/comingsoon": 4,
+  "/skills": 4,
+  "/interests": 5,
+  "/connections": 6,
 
   "/": 1,
   "404": 404

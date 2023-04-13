@@ -1,8 +1,6 @@
-import { useState } from 'react'
 import './page.css'
 
 function Page(props: {state: number}) {
-
 
   return (
     <div className="page">

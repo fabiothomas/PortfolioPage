@@ -5,7 +5,7 @@ function Page(props: {state: number}) {
   return (
     <div>
       <div className="page">
-        <h1 className="title">About Me</h1>
+        <h1 className="title">Interests</h1>
 
         <div className="text-container">
           <p className="text">Hello my name is fabiothomas and i am absolutely honered that you're here lolHello my name is fabiothomas and i am absolutely honered that you're here lolHello my name is fabiothomas and i am absolutely honered that you're here lolHello my name is fabiothomas and i am absolutely honered that you're here lol</p>
