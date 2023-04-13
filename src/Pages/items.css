@@ -1,23 +1,69 @@
-.aboutme-text1 {
-grid-row: 1 / 3;
-grid-column: 1 / 3;
-
-text-align: center;
-overflow: hidden;
-
-background-color: rgba(31, 32, 46, 0.15);
-border-radius: 0.6vw;
-padding: 0.4vw;
+.title {
+  background-color: rgba(31, 32, 46, 0.15);
+  border-radius: 0.6vw;
+  padding: 0.4vw;
+  margin-block: auto;
 }
 
-.aboutme-text2 {
-grid-row: 2 / 4;
-grid-column: 3 / 5;
+.title-solid {
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 100vw;
+  padding: 1vw;
+  margin-block: auto;
 
-text-align: center;
-overflow: hidden;
+  color: black;
+}
 
-background-color: rgba(31, 32, 46, 0.15);
-border-radius: 0.6vw;
-padding: 0.4vw;
+.text {
+  width: 19vw;
+
+  text-align: center;
+
+  background-color: rgba(31, 32, 46, 0.15);
+  border-radius: 0.6vw;
+  padding: 0.4vw;
+}
+
+.text-solid {
+  width: 19vw;
+
+  text-align: center;
+
+  background-color: rgb(255, 255, 255);
+  border-radius: 100vw;
+  padding: 1vw;
+
+  color: black;
+  font-size: 2rem;
+}
+
+.empty {
+  width: 19vw;
+}
+
+
+
+
+
+.small {
+  font-size: 1.5rem;
+}
+
+.slim {
+  width: 15vw;
+  padding: 0.1vw;
+  margin: 0.5svh;
+
+  text-align: center;
+}
+
+.absolute {
+  z-index: 1;
+  margin-left: 100px;
+  margin-bottom: 0;
+
+  width: 10rem;
+
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }

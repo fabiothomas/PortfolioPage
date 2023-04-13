@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { animated, useSpring } from '@react-spring/web';
-import { MinusIcon, UserIcon, CubeTransparentIcon, FireIcon, CommandLineIcon } from '@heroicons/react/24/solid'
+import { MinusIcon, HomeIcon, UserIcon, PhotoIcon, AcademicCapIcon, CommandLineIcon, ShareIcon } from '@heroicons/react/24/solid'
 
 import * as manager from './ScrollManager'
 
@@ -17,19 +17,17 @@ function Navigation(props: {active: number}) {
       <animated.div style={styles} className="svg-selector svg-selector-underlay" />
       <animated.div style={styles} className="svg-selector svg-selector-overlay" />
 
-      <UserIcon className="svg svg-clickable" onClick={() => manager.setActive(1)} />
+      <HomeIcon className="svg svg-clickable" onClick={() => manager.setActive(1)} />
       <MinusIcon className="svg" />
-      <CubeTransparentIcon className="svg svg-clickable" onClick={() => manager.setActive(2)} />
+      <UserIcon className="svg svg-clickable" onClick={() => manager.setActive(2)} />
       <MinusIcon className="svg" />
-      <FireIcon className="svg svg-clickable" onClick={() => manager.setActive(3)} />
+      <PhotoIcon className="svg svg-clickable" onClick={() => manager.setActive(3)} />
       <MinusIcon className="svg" />
-      <CommandLineIcon className="svg svg-clickable" onClick={() => manager.setActive(4)} />
-      {/* <MinusIcon className="svg" />
-      <CubeTransparentIcon className="svg svg-clickable" />
+      <AcademicCapIcon className="svg svg-clickable" onClick={() => manager.setActive(4)} />
       <MinusIcon className="svg" />
-      <FireIcon className="svg svg-clickable" />
+      <CommandLineIcon className="svg svg-clickable" onClick={() => manager.setActive(5)} />
       <MinusIcon className="svg" />
-      <CommandLineIcon className="svg svg-clickable" /> */}
+      <ShareIcon className="svg svg-clickable" onClick={() => manager.setActive(6)} />
 
       
     </div>

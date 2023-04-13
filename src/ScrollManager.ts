@@ -10,7 +10,7 @@ const basePositions: { [name: number]: number } = {
   6: 135,
   7: 90,
 }
-const totalPositions = 4
+const totalPositions = 6
 const standardOffset = 20
 
 let scrolling = 0 //scrolling cooldown before automatic correction
