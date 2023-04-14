@@ -1,3 +1,4 @@
+import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon } from '@heroicons/react/24/solid'
 import './page.css'
 import './items.css'
 
@@ -10,6 +11,8 @@ function Page(props: {state: number}) {
           <h1 className="title-solid small slim absolute">I am</h1>
           <h1 className="title-solid">Fabio van 't Hoff</h1>
         </div>
+
+        <div className="line">ㅤ</div>
 
         <div className="text-collection">
           <div className="text-container">
@@ -27,7 +30,16 @@ function Page(props: {state: number}) {
         </div>
 
         <div className="text-container">
-          <p className="empty"></p>
+          <p className="empty">
+            <div className="text-collection center">
+              <div>
+                <ChevronDoubleLeftIcon className="icon" />
+                <ChevronDoubleRightIcon className="icon" />
+              </div>
+              <p className="flat">Use the arrow keys to navigate</p>
+              <p>Or click on the icons top left</p>
+            </div>
+          </p>
           <p className="text-solid small">Go ahead and have a look around!</p>
         </div>
 

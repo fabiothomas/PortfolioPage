@@ -4,12 +4,12 @@ function Page(props: {state: number}) {
 
   return (
     <div className="page">
-      <h1 className="title">Work</h1>
+      <h1 className="title-solid">Work</h1>
 
-      <div className="text-container">
-        <p className="text">W.I.P.</p>
-        <p className="text">I still don't know what to tell you</p>
-      </div>
+      <div className="line">ㅤ</div>
+
+      <p className="text small flat">Over the years I will surely make some great things, and work with great companies. For now I don't yet have much to show</p>
+      <p className="text small flat">Of course feel free to visit my Github for some more smaller projects</p>
     </div>
   )
 }
