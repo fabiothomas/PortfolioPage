@@ -60,6 +60,10 @@
   align-items: center;
 }
 
+.center-text {
+  text-align: center;
+}
+
 .empty {
   width: 19vw;
 }
@@ -90,4 +94,8 @@
 .flat {
   gap: 0;
   margin: 0;
+}
+
+.stick {
+  margin-top: 0;
 }
