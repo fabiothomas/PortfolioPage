@@ -1,20 +1,20 @@
 import './page.css'
 
+import logo_git from '../assets/logo/logo_git.svg'
+import logo_in from '../assets/logo/logo_in.svg'
+
 function Page(props: {state: number}) {
 
   return (
     <div>
       <div className="page">
-        <h1 className="title">Connections</h1>
+        <h1 className="title-solid">Connections</h1>
+
+        <div className="line">ㅤ</div>
 
         <div className="text-container">
-          <p className="text">Hello my name is fabiothomas and i am absolutely honered that you're here lolHello my name is fabiothomas and i am absolutely honered that you're here lolHello my name is fabiothomas and i am absolutely honered that you're here lolHello my name is fabiothomas and i am absolutely honered that you're here lol</p>
-          <p className="empty"></p>
-        </div>
-
-        <div className="text-container">
-          <p className="empty"></p>
-          <p className="text">ok so have a look around i guess</p>
+          <a href="https://github.com/fabiothomas" target="_blank" className="logo"><img className="logo" src={logo_git} alt="logo_git"/></a>
+          <a href="https://www.linkedin.com/in/fabio-van-t-hoff-7593a3232/" target="_blank" className="logo"><img className="logo" src={logo_in} alt="logo_in"/></a>
         </div>
 
       </div>
