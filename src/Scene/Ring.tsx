@@ -38,7 +38,33 @@ function Section2() {
 function Section3() {
   const start: number = 135;
   const offset: number = 6;
-  const length: number = 225;
+  const length: number = 45;
+
+  return (
+    <mesh rotation={[manager.deg(0), manager.deg(0), manager.deg( start + offset), 'XYZ']}>
+      <torusGeometry args={[4.15, 0.005, 5, quality / 360 * length, manager.deg(length - 2 * offset)]} />
+      <meshToonMaterial color={'#8d8d8d'} side={THREE.DoubleSide} />
+    </mesh>
+  )
+}
+
+function Section4() {
+  const start: number = 180;
+  const offset: number = 6;
+  const length: number = 45;
+
+  return (
+    <mesh rotation={[manager.deg(0), manager.deg(0), manager.deg( start + offset), 'XYZ']}>
+      <torusGeometry args={[4.15, 0.005, 5, quality / 360 * length, manager.deg(length - 2 * offset)]} />
+      <meshToonMaterial color={'#8d8d8d'} side={THREE.DoubleSide} />
+    </mesh>
+  )
+}
+
+function Section5() {
+  const start: number = 225;
+  const offset: number = 6;
+  const length: number = 135;
 
   return (
     <mesh rotation={[manager.deg(0), manager.deg(0), manager.deg( start + offset), 'XYZ']}>
@@ -61,6 +87,8 @@ function Ring() {
       <Section1 />
       <Section2 />
       <Section3 />
+      <Section4 />
+      <Section5 />
     </group>
   )
 }
