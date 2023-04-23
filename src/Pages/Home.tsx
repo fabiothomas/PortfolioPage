@@ -16,7 +16,7 @@ function Page(props: {state: number}) {
 
         <div className="text-collection">
           <div className="text-container">
-            <p className="text-solid">Software Engineer</p>
+            <p className="text-solid stick">Software Engineer</p>
             <p className="empty"></p>
           </div>
           <div className="text-container">
@@ -36,11 +36,11 @@ function Page(props: {state: number}) {
                 <ChevronDoubleLeftIcon className="icon" />
                 <ChevronDoubleRightIcon className="icon" />
               </div>
-              <p className="flat">Use the arrow keys to navigate</p>
-              <p>Or click on the icons top left</p>
+              <p className="flat center-text">Use the arrow keys to navigate</p>
+              <p className="center-text">Or click on the icons top left</p>
             </div>
           </p>
-          <p className="text-solid small">Go ahead and have a look around!</p>
+          <p className="text-solid small center-block">Go ahead and have a look around!</p>
         </div>
 
       </div>
