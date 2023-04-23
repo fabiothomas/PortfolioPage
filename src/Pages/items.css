@@ -60,6 +60,10 @@
   align-items: center;
 }
 
+.center-block {
+  margin-block: auto;
+}
+
 .center-text {
   text-align: center;
 }

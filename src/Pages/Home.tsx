@@ -40,7 +40,7 @@ function Page(props: {state: number}) {
               <p className="center-text">Or click on the icons top left</p>
             </div>
           </p>
-          <p className="text-solid small">Go ahead and have a look around!</p>
+          <p className="text-solid small center-block">Go ahead and have a look around!</p>
         </div>
 
       </div>
