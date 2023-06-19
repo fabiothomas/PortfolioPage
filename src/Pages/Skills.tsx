@@ -37,8 +37,8 @@ function Page(props: {state: number}) {
 
         <p className="text flat">Project Managment</p>
         <div className="text-container">
-          <a href="https://www.uml.org/" target="_blank" className="logo"><img className="logo" src={logo_uml} alt="logo_uml"/></a>
           <a href="https://github.com/" target="_blank" className="logo"><img className="logo" src={logo_git} alt="logo_git"/></a>
+          <a href="https://www.uml.org/" target="_blank" className="logo"><img className="logo" src={logo_uml} alt="logo_uml"/></a>
           <a href="https://www.scrum.org/" target="_blank" className="logo"><img className="logo" src={logo_scrum} alt="logo_scrum"/></a>
         </div>
 

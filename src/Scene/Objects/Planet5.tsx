@@ -1,24 +1,34 @@
 import { useState, useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
-import { useTexture, Float } from '@react-three/drei'
+import { useTexture } from '@react-three/drei'
 import { GhibliShader } from '../../shaders/GhibliShader'
 
 import * as manager from '../../ScrollManager'
-import { Model } from './Models/House'
 
 const pos: number[] = [-1, 0, -2];
 const radius: number = 4.15;
-const id: number = 1;
+const id: number = 5;
 
 let degrees: number;
 
+function Dots() {
+  const ref = useRef<THREE.Points>(null!);
+
+  useFrame(() => {
+    ref.current.rotateY(0.0002)
+  })
+
+  return (
+    <points ref={ref} >
+      <icosahedronGeometry args={[0.2, 5]} />
+      <pointsMaterial color='white' size={0.01} />
+    </points>
+  )
+}
+
 function Planet() {
   const ref = useRef<THREE.Mesh>(null!);
-
-  const customTone = useTexture('gradientMaps/customThree.png')
-  customTone.minFilter = THREE.NearestFilter
-  customTone.magFilter = THREE.NearestFilter
 
   useFrame(() => {
     
@@ -27,8 +37,7 @@ function Planet() {
   return (
     <mesh ref={ref} >
       <sphereGeometry args={[0.23, 30, 30]} />
-      <Model />
-      <meshToonMaterial color={'#88888b'} gradientMap={customTone} />
+      <meshStandardMaterial color={'#080917'} side={THREE.BackSide} />
     </mesh>
   )
 }
@@ -44,9 +53,8 @@ function Collection() {
 
   return (
     <group ref={ref} >
-      <Float speed={1} rotationIntensity={1.0} floatIntensity={0}>
-        <Planet />
-      </Float>
+      <Planet />
+      <Dots />
     </group>
   )
 }
