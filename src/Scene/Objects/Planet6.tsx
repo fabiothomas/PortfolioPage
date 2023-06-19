@@ -1,34 +1,29 @@
 import { useState, useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
-import { useTexture, Float } from '@react-three/drei'
-import { GhibliShader } from '../../shaders/GhibliShader'
+import { MeshDistortMaterial, useTexture } from '@react-three/drei'
 
 import * as manager from '../../ScrollManager'
-import { Model } from './Models/House'
 
 const pos: number[] = [-1, 0, -2];
 const radius: number = 4.15;
-const id: number = 1;
+const id: number = 6;
 
 let degrees: number;
 
 function Planet() {
   const ref = useRef<THREE.Mesh>(null!);
 
-  const customTone = useTexture('gradientMaps/customThree.png')
-  customTone.minFilter = THREE.NearestFilter
-  customTone.magFilter = THREE.NearestFilter
-
   useFrame(() => {
-    
+    ref.current.rotateX(0.005)
+    ref.current.rotateY(0.002)
+    ref.current.rotateZ(0.009)
   })
 
   return (
     <mesh ref={ref} >
-      <sphereGeometry args={[0.23, 30, 30]} />
-      <Model />
-      <meshToonMaterial color={'#88888b'} gradientMap={customTone} />
+      <torusGeometry args={[0.2, 0.05, 20, 30]} />
+      <meshStandardMaterial color={'#656775'} />
     </mesh>
   )
 }
@@ -44,9 +39,7 @@ function Collection() {
 
   return (
     <group ref={ref} >
-      <Float speed={1} rotationIntensity={1.0} floatIntensity={0}>
-        <Planet />
-      </Float>
+      <Planet />
     </group>
   )
 }
