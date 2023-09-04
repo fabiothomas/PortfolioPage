@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, Suspense } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import { OrbitControls, Stars, Float, useTexture } from '@react-three/drei'
@@ -72,8 +72,10 @@ function Scene(props: {state: number ,setState: React.Dispatch<React.SetStateAct
       
       {/* Standard scene stuff */}
       <ambientLight intensity={0.5}/>
-      <Light />
-      <Stars />
+      <Suspense>
+        <Light />
+        <Stars />
+      </Suspense>
 
       <Ring />
       {/* <Rings /> */}
